@@ -33,4 +33,10 @@
     <bean name="etudiantController" class="Controllers.EtudiantController"/>
     <bean name="loginController" class="Controllers.LoginController"/>
     
+        <!-- ordonner au système pour créer tous les beans des controleurs pour moi -->
+     <!--<context:component-scan base-package="Controllers"/>-->
+    
+    <mvc:resources mapping="/ressources/**" location=" /WEB-INF/resources/"/>
+    <mvc:annotation-driven/>
+    
 </beans>
