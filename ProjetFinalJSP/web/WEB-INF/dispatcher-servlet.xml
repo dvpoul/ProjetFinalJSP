@@ -1,0 +1,36 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.3.xsd
+       http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+       http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.3.xsd
+       http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.3.xsd">
+
+   
+    <!-- La configuration du gestionnaire du mappage des ressources (images, js, css) -->
+    <mvc:resources mapping="/ressources/**" location="/WEB-INF/resources/"/>
+    <mvc:annotation-driven /> 
+    
+    <!-- gestionnaire des chemins pour les vues -->
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver"
+          p:prefix="/WEB-INF/Views/"
+          p:suffix=".jsp" />
+
+    <!-- gestionnaire des chemins pour les controlleurs -->
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping"/>
+    <bean class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter"/>
+
+
+    
+    <!-- La déclaration des objets pour mes controlleurs -->
+    <bean name="homeController" class="Controllers.HomeController"/>
+    <bean name="adminController" class="Controllers.AdminController"/>
+    <bean name="etudiantController" class="Controllers.EtudiantController"/>
+    <bean name="loginController" class="Controllers.LoginController"/>
+    
+</beans>
